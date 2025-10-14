@@ -23,6 +23,5 @@ class InscriptionController extends AbstractController
             'id' => $id,
         ]);
     }
-
 }
 ?>
