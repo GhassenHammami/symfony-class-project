@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\JobRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\Image;
 
 #[ORM\Entity(repositoryClass: JobRepository::class)]
 class Job
@@ -28,6 +29,9 @@ class Job
 
     #[ORM\Column(length: 255)]
     private ?string $email = null;
+
+    #[ORM\OneToOne(targetEntity: Image::class)]
+    private ?Image $image = null;
 
     public function getId(): ?int
     {
@@ -93,4 +97,16 @@ class Job
 
         return $this;
     }
+
+    public function getImage(): ?Image
+    {
+        return $this->image;
+    }
+
+    public function setImage(?Image $image): static
+    {
+        $this->image = $image;
+        return $this;
+    }
+
 }
