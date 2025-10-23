@@ -13,13 +13,13 @@ class InscriptionController extends AbstractController
     {
         $number = random_int(0, 100);
 
-        return $this->render('Inscription/acceuil.html.twig', ['number' => $number]);
+        return $this->render('inscription/acceuil.html.twig', ['number' => $number]);
     }
 
     #[Route('/voir/{id}', name: 'voir')]
     public function voirAction($id)
     {
-        return $this->render('Inscription/voir.html.twig', [
+        return $this->render('inscription/voir.html.twig', [
             'id' => $id,
         ]);
     }
