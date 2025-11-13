@@ -9,4 +9,20 @@
         <h3>Image :</h3>
         <img src="{{ job.image.getUrl() }}" alt="{{ job.image.getAlt() }}" height="100">
     {% endif %}
+
+    {% if listCandidatures is not empty %}
+    <h3>Liste des candidatures :</h3>
+        <ul>
+            {% for candidature in listCandidatures %}
+            <h4>Candidat</h4>
+            <ul type="square">
+                <li><strong>Nom :</strong> {{ candidature.candidat }}</li>
+                <li><strong>Contenu :</strong> {{ candidature.contenu }}</li>
+                <li><strong>Date :</strong> {{ candidature.date|date('d-m-Y') }}</li>
+            </ul>
+            <hr>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
 {% endblock %}
