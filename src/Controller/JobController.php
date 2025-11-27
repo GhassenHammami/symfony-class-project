@@ -23,6 +23,15 @@ class JobController extends AbstractController
         ]);
     }
 
+    #[Route('/job', name: 'app_job_index')]
+    public function index(EntityManagerInterface $em): Response
+    {
+        $jobs = $em->getRepository(Job::class)->findAll();
+        return $this->render('job/index.html.twig', [
+            'jobs' => $jobs
+        ]);
+    }
+
     #[Route(path: "/job/new", name: "app_job_new")]
     public function createJob(Request $request, EntityManagerInterface $em): Response
     {
