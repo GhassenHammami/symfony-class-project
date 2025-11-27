@@ -23,21 +23,6 @@ class JobController extends AbstractController
         ]);
     }
 
-    #[Route('/job/{id}', name: 'app_job_show')]
-    public function show(EntityManagerInterface $entityManager, $id)
-    {
-        $job = $entityManager->getRepository(Job::class)->find($id);
-
-        $listCandidatures = $entityManager->getRepository(Candidature::class)
-            ->findBy(['job' => $job]);
-
-
-        return $this->render('job/show.html.twig', [
-            'job' => $job,
-            'listCandidatures' => $listCandidatures
-        ]);
-    }
-
     #[Route(path: "/job/new", name: "app_job_new")]
     public function createJob(Request $request, EntityManagerInterface $em): Response
     {
@@ -54,5 +39,20 @@ class JobController extends AbstractController
             view: 'job/new.html.twig',
             parameters: ['f' => $form->createView()]
         );
+    }
+
+    #[Route('/job/{id}', name: 'app_job_show')]
+    public function show(EntityManagerInterface $entityManager, $id)
+    {
+        $job = $entityManager->getRepository(Job::class)->find($id);
+
+        $listCandidatures = $entityManager->getRepository(Candidature::class)
+            ->findBy(['job' => $job]);
+
+
+        return $this->render('job/show.html.twig', [
+            'job' => $job,
+            'listCandidatures' => $listCandidatures
+        ]);
     }
 }
