@@ -14,8 +14,8 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class RegistrationController extends AbstractController
 {
-    #[Route('/registration', name: 'app_registration')]
-    public function registration(
+    #[Route('/register', name: 'app_register')]
+    public function register(
         UserPasswordHasherInterface $passwordHasher,
         EntityManagerInterface $entityManager,
         Request $request
@@ -49,7 +49,7 @@ class RegistrationController extends AbstractController
             ]);
         }
 
-        return $this->render('registration/form.html.twig', [
+        return $this->render('register/form.html.twig', [
             'form' => $form->createView(),
         ]);
     }
@@ -57,7 +57,7 @@ class RegistrationController extends AbstractController
     #[Route('/show/{id}', name: 'show')]
     public function show(User $user): Response
     {
-        return $this->render('registration/show.html.twig', [
+        return $this->render('register/show.html.twig', [
             'user' => $user,
         ]);
     }
@@ -71,7 +71,7 @@ class RegistrationController extends AbstractController
         // Dernier email saisi par l’utilisateur
         $lastUsername = $authenticationUtils->getLastUsername() ?? '';
 
-        return $this->render('registration/login.html.twig', [
+        return $this->render('register/login.html.twig', [
             'controller_name' => 'LoginController',
             'email' => $lastUsername,
             'error' => $error,
