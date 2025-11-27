@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User Details{% endblock %}
+
+{% block body %}
+    <h1>Détails de l'utilisateur</h1>
+
+    <h3>Email : {{ user.email }}</h3>
+    <a href="{{ path('app_login') }}" class="btn btn-secondary">Login</a>
+{% endblock %}
