@@ -45,15 +45,5 @@
 </table>
 
 <a href="{{ path('app_job_index') }}" class="btn btn-info">View All Jobs</a>
-<ul>
-    {% for candidat in lesCandidats %}
-        <li>
-            {{ candidat.nom }}
-            {% if candidat.job %}
-                <a href="{{ path('app_job_show', {'id': candidat.job.id}) }}" class="btn btn-info btn-sm">View Job</a>
-            {% endif %}
-        </li>
-    {% endfor %}
-</ul>
 
 {% endblock %}

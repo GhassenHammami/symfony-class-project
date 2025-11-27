@@ -72,3 +72,13 @@ Check if your database schema matches your entities.
 ```bash
 php bin/console doctrine:schema:validate
 ```
+
+## Load Sample Data (Fixtures)
+
+To seed the database with initial data, run:
+
+```bash
+php bin/console doctrine:fixtures:load
+```
+
+This will purge the database and load the sample jobs, candidatures, and images.

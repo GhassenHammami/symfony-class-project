@@ -19,7 +19,7 @@
         {% for job in jobs %}
         <tr>
             <td>{{ job.id }}</td>
-            <td>{{ job.title }}</td>
+            <td>{{ job.type }}</td>
             <td>{{ job.description }}</td>
             <td>
                 <a class="btn btn-info btn-sm" href="{{ path('app_job_show', {'id': job.id}) }}">Voir</a>
